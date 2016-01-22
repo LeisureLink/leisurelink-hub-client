@@ -1,0 +1,47 @@
+{
+  "name": "leisurelink-hub-client",
+  "version": "1.0.0",
+  "description": "A client for LeisureLink's hub API",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test",
+    "test:integration": "mocha --recursive test/**/*.integration-tests.js test/*.integration-tests.js",
+    "test:unit": "mocha --recursive test/**/*.tests.js test/*.tests.js",
+    "test:watch": "onchange 'lib/**/*' 'test/**/*' '*.js' '*.json' -- npm run test",
+    "test:unit:watch": "onchange 'lib/**/*' 'test/**/*' '*.js' '*.json' -- npm run test",
+    "test:coverage": "istanbul cover node_modules/mocha/bin/_mocha -- -R ${MOCHA_REPORTER:-spec} --recursive test",
+    "test:unit:coverage": "istanbul cover node_modules/mocha/bin/_mocha -- -R ${MOCHA_REPORTER:-spec} --recursive test/*.tests.js test/**/*.tests.js",
+    "posttest:coverage": "istanbul check-coverage",
+    "lint": "esw --quiet",
+    "lint:watch": "esw --quiet --watch",
+    "docs": "node_modules/.bin/jsdoc -c ./jsdoc.conf.json",
+    "docs:watch": "onchange 'lib/**/*' 'test/**/*' '*.js' '*.json'  -- npm run docs",
+    "ci": "npm run lint && npm run test:coverage",
+    "prepublish": "npm run docs",
+    "preversion": "./scripts/check_branch.sh",
+    "postversion": "git push origin master --tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeisureLink/magicbus.git"
+  },
+  "author": "LeisureLink Tech <techteam@leisurelink.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LeisureLink/leisurelink-hub-client/issues"
+  },
+  "homepage": "https://github.com/LeisureLink/leisurelink-hub-client#readme",
+  "devDependencies": {
+    "eslint": "^1.7.3",
+    "eslint-config-leisurelink": "^1.0.1",
+    "eslint-watch": "^2.1.2",
+    "istanbul": "^0.4.0",
+    "mocha": "^2.3.3",
+    "onchange": "^2.0.0"
+  },
+  "dependencies": {
+    "assert-plus": "^0.2.0",
+    "request-then": "^1.1.0",
+    "uri-templates": "^0.1.9"
+  }
+}
