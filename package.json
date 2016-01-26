@@ -14,10 +14,7 @@
     "posttest:coverage": "istanbul check-coverage",
     "lint": "esw --quiet",
     "lint:watch": "esw --quiet --watch",
-    "docs": "node_modules/.bin/jsdoc -c ./jsdoc.conf.json",
-    "docs:watch": "onchange 'lib/**/*' 'test/**/*' '*.js' '*.json'  -- npm run docs",
     "ci": "npm run lint && npm run test:coverage",
-    "prepublish": "npm run docs",
     "preversion": "./scripts/check_branch.sh",
     "postversion": "git push origin master --tags"
   },
@@ -41,7 +38,7 @@
   },
   "dependencies": {
     "assert-plus": "^0.2.0",
-    "request-then": "^1.1.0",
+    "request": "^2.67.0",
     "uri-templates": "^0.1.9"
   }
 }

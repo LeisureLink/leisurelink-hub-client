@@ -17,7 +17,7 @@ function LeisureLinkHubClient(options) {
   else if (options.version === 'v1') {
     return v1(options);
   }
-  else (options.version !== 'v1' && options.version !== 'v2') {
+  else {
     throw new Error(`Unsupported LeisureLink Hub API Version '${options.version}'. Supported versions are 'v1' or 'v2'.`)
   }
 }
