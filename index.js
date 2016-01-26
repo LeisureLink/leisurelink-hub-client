@@ -9,17 +9,20 @@ function LeisureLinkHubClient(options) {
   assert.string(options.version, 'options.version');
   assert.string(options.apiKey, 'options.apiKey');
   assert.optionalString(options.url, 'options.url');
-  options.url = options.url || 'https://api.leisurelink.com'
 
+  options.url = options.url || 'https://api.leisurelink.com';
+
+  let client;
   if (options.version === 'v2') {
-    return v2(options);
+    client = v2(options);
   }
   else if (options.version === 'v1') {
-    return v1(options);
+    client = v1(options);
   }
   else {
-    throw new Error(`Unsupported LeisureLink Hub API Version '${options.version}'. Supported versions are 'v1' or 'v2'.`)
+    throw new Error(`Unsupported LeisureLink Hub API Version '${options.version}'. Supported versions are 'v1' or 'v2'.`);
   }
+  return client;
 }
 
 

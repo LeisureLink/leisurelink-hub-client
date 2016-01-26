@@ -29,9 +29,9 @@
   },
   "homepage": "https://github.com/LeisureLink/leisurelink-hub-client#readme",
   "devDependencies": {
-    "eslint": "^1.7.3",
+    "eslint": "^1.10.3",
     "eslint-config-leisurelink": "^1.0.1",
-    "eslint-watch": "^2.1.2",
+    "eslint-watch": "^2.1.6",
     "istanbul": "^0.4.0",
     "mocha": "^2.3.3",
     "onchange": "^2.0.0"
