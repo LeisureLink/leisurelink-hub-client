@@ -1,6 +1,6 @@
 {
   "name": "leisurelink-hub-client",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A client for LeisureLink's hub API",
   "main": "index.js",
   "scripts": {
