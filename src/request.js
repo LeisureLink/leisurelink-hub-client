@@ -1,11 +1,8 @@
-'use strict';
-/* eslint complexity: 0 */
+import request from 'request';
 
-const request = require('request');
-
-module.exports = (eventSink) => {
+export default (eventSink) => {
   return (options) => {
-    if (typeof(options.json) === 'undefined'){
+    if (typeof(options.json) === 'undefined') {
       options.json = true;
     }
 

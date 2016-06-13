@@ -1,8 +1,7 @@
-//
 // const assert = require('assert-plus');
-// const v1 = require('./src/v1');
-// const v2 = require('./src/v2');
-//
+// const v1 = require('./v1');
+// const v2 = require('./v2');
+
 // function LeisureLinkHubClient(options) {
 //   assert.object(options, 'options');
 //   assert.string(options.version, 'options.version');
@@ -23,15 +22,21 @@
 //   }
 //   return client;
 // }
+// module.exports = LeisureLinkHubClient;
 
+'use strict';
 
-export default class {
-  constructor(apiKey, options = {}) {
-    this.apiKey = apiKey;
-    this.url = options.url || '';
+import v2 from './v2';
 
-    if (!this.apiKey) {
-      throw new Error('API Key is required');
-    }
+export default (apiKey, options = {}) => {
+  const url = options.url || 'https://api.leisurelink.com';
+
+  if (!apiKey) {
+    throw new Error('API Key is required');
   }
-}
+
+  return {
+    v1: {},
+    v2: v2(apiKey, url)
+  };
+};

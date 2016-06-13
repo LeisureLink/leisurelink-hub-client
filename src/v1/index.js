@@ -1,7 +1,5 @@
-'use strict';
-
 const uriTemplate = require('uri-templates');
-const Request = require('./request');
+const Request = require('../request');
 const EventEmitter = require('events').EventEmitter;
 
 function LeisureLinkHubV1(options) {
@@ -113,3 +111,4 @@ function LeisureLinkHubV1(options) {
 }
 
 module.exports = LeisureLinkHubV1;
+
