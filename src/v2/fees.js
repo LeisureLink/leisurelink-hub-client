@@ -1,11 +1,11 @@
 'use strict';
 
-import Http from '../infrastructure/http';
+import Http from 'wrecked';
 import route, { Kind } from './shared/routes';
 
 export default (apiKey, baseUrl) => {
 
-  const http = Http(baseUrl);
+  const http = Http.create();
 
   const getRoute = (kind, ...params) => route('fees', kind, { baseUrl, apiKey, ...params });
 

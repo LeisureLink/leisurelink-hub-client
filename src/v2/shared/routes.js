@@ -78,7 +78,6 @@ const Routes = {
   }
 };
 
-
 export default (collection, kind, ...params) => {
   params = params.reduce((prev, curr) => ({ ...curr, ...prev }));
   return params.baseUrl + Routes[collection][kind].fill(params);
