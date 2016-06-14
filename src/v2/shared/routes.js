@@ -7,10 +7,10 @@ const apiKey = '{?apiKey}';
 const template = (path) => UriTemplate(path + apiKey);
 
 export const Kind = {
-  COLLECTION: 'COLLECTION',
-  ID: 'ID',
-  APPLIES_TO: 'APPLIES_TO',
-  WORKFLOW: 'WORKFLOW',
+  COLLECTION: 'collection',
+  ID: 'id',
+  APPLIES_TO: 'appliesTo',
+  WORKFLOW: 'workflow',
   DATE: 'date',
   CHECK: 'check'
 };

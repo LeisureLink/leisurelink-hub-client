@@ -29,11 +29,6 @@ export default (apiKey, baseUrl) => {
     update(pmcId, unitId, ratePlanId, payload) {
       const uri = getRoute(Kind.COLLECTION, pmcId, unitId, ratePlanId);
       return http.put(uri, payload);
-    },
-
-    status(pmcId, workflowId) {
-      const uri = getRoute(Kind.WORKFLOW, pmcId, workflowId);
-      return http.get(uri);
     }
   };
 
