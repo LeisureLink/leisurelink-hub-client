@@ -30,11 +30,6 @@ export default (apiKey, baseUrl) => {
     delete(pmcId, unitId) {
       const uri = getRoute(Kind.COLLECTION, pmcId, unitId);
       return http.delete(uri);
-    },
-
-    status(pmcId, unitId, workflowId) {
-      const uri = getRoute(Kind.WORKFLOW, pmcId, unitId, workflowId);
-      return http.get(uri);
     }
   };
 
