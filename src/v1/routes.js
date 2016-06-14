@@ -1,3 +1,5 @@
+'use strict';
+
 import UriTemplate from 'uri-templates';
 
 const ROUTES = {

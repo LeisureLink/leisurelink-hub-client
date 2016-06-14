@@ -113,10 +113,10 @@
 // module.exports = LeisureLinkHubV1;
 //
 
+'use strict';
 
 export default (baseUrl, apiKey) => {
-  
   return {
-    
-  }
+    baseUrl, apiKey
+  };
 };

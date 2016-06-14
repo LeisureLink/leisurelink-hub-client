@@ -1,7 +1,7 @@
 'use strict';
 
 import Http from '../infrastructure/http';
-import route, {Kind} from './shared/routes';
+import route, { Kind } from './shared/routes';
 
 export default (apiKey, baseUrl) => {
 

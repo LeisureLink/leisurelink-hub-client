@@ -1,3 +1,5 @@
+'use strict';
+
 import Wreck from 'wreck';
 import Util from 'util';
 
@@ -50,7 +52,7 @@ export default (baseUrl) => {
       });
     },
 
-    delete(uri) {
+    delete(uri, options = {}) {
       return new Promise((resolve, reject) => {
         instance.delete(uri, options, (err, response, payload) => {
           if (err) return reject(err);

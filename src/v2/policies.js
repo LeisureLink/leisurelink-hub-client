@@ -1,15 +1,14 @@
 'use strict';
 
 import Http from '../infrastructure/http';
-import route, {Kind} from './shared/routes';
-
+import route, { Kind } from './shared/routes';
 
 
 export default (apiKey, baseUrl) => {
 
   const http = Http(baseUrl);
   const getRoute = (kind, ...params) => route('policies', kind, { baseUrl, apiKey, ...params });
-  
+
   return {
     all(pmcId) {
       const uri = getRoute(Kind.COLLECTION, pmcId);

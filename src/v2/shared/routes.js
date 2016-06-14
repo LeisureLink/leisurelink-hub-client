@@ -2,7 +2,6 @@
 
 import UriTemplate from 'uri-templates';
 
-const baseUrl = '{baseUrl}';
 const apiKey = '{?apiKey}';
 
 const template = (path) => UriTemplate(path + apiKey);
