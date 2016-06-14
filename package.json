@@ -42,7 +42,6 @@
   },
   "dependencies": {
     "uri-templates": "^0.1.9",
-    "wreck": "^8.0.0",
     "wrecked": "^1.0.0"
   }
 }
