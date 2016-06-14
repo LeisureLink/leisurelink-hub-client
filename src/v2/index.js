@@ -11,7 +11,7 @@ import stayRestrictions from './stay-restrictions-rate-plans';
 import taxes from './taxes';
 import units from './units';
 
-export default (apiKey, baseUrl) => {
+export default (baseUrl, apiKey) => {
 
   return {
     availability: availability(apiKey, baseUrl),

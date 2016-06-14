@@ -1,31 +1,40 @@
 'use strict';
 
 import Http from '../infrastructure/http';
+import route, { Kind } from './shared/routes';
+
 
 export default (apiKey, baseUrl) => {
 
   const http = Http(baseUrl);
 
+  const getRoute = (kind, ...params) => route('availability', kind, { baseUrl, apiKey, ...params });
+
   return {
 
     all(pmcId, unitId) {
-      const uri = `${baseUrl}/hub/v2/pmcs/${pmcId}/units/${unitId}/availability`;
+      const uri = getRoute(Kind.COLLECTION, pmcId, unitId);
+      return http.get(uri);
     },
 
     checkByDate(pmcId, unitId) {
-      const uri = `${baseUrl}/hub/v2/pmcs/${pmcId}/units/${unitId}/availability/check`;
+      const uri = getRoute(Kind.CHECK, pmcId, unitId);
+      return http.get(uri);
     },
 
-    replace(pmcId, unitId, availability) {
-
+    replace(pmcId, unitId, payload) {
+      const uri = getRoute(Kind.COLLECTION, pmcId, unitId);
+      return http.put(uri, payload);
     },
 
-    replace(pmcId, unitId) {
-
+    delete(pmcId, unitId) {
+      const uri = getRoute(Kind.COLLECTION, pmcId, unitId);
+      return http.delete(uri);
     },
 
     status(pmcId, unitId, workflowId) {
-
+      const uri = getRoute(Kind.WORKFLOW, pmcId, unitId, workflowId);
+      return http.get(uri);
     }
   };
 

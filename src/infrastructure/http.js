@@ -1,16 +1,7 @@
 import Wreck from 'wreck';
+import Util from 'util';
 
-const request = (instance, method, uri, options = {}) => {
-  return new Promise((resolve, reject) => {
-    instance.request(method, uri, options, (err, response) => {
-      if (err) return reject(err);
-      Wreck.read(response, { json: true }, (err, payload) => {
-        if (err) return reject(err);
-        return resolve({ response, payload });
-      });
-    });
-  });
-};
+const stringify = (value) => Util.inspect(value, { depth: null });
 
 
 export default (baseUrl) => {
@@ -20,24 +11,52 @@ export default (baseUrl) => {
 
   return {
 
-    get(uri) {
-      return request(instance, 'GET', uri);
+    get(uri, options = {}) {
+      return new Promise((resolve, reject) => {
+        instance.get(uri, options, (err, response, payload) => {
+          if (err) return reject(err);
+          return resolve({ response, payload });
+        });
+      });
     },
 
     post(uri, payload, options = {}) {
-      return request(instance, 'POST', uri, { ...options, ...payload });
+      return new Promise((resolve, reject) => {
+        options.payload = stringify(payload);
+        instance.post(uri, options, (err, response, payload) => {
+          if (err) return reject(err);
+          return resolve({ response, payload });
+        });
+      });
     },
 
     put(uri, payload, options = {}) {
-      return request(instance, 'PUT', uri, { ...options, ...payload });
+      return new Promise((resolve, reject) => {
+        options.payload = stringify(payload);
+        instance.put(uri, options, (err, response, payload) => {
+          if (err) return reject(err);
+          return resolve({ response, payload });
+        });
+      });
     },
 
     patch(uri, payload, options = {}) {
-      return request(instance, 'PATCH', uri, { ...options, ...payload });
+      return new Promise((resolve, reject) => {
+        options.payload = stringify(payload);
+        instance.patch(uri, options, (err, response, payload) => {
+          if (err) return reject(err);
+          return resolve({ response, payload });
+        });
+      });
     },
 
     delete(uri) {
-      return request(instance, 'DELETE', uri);
+      return new Promise((resolve, reject) => {
+        instance.delete(uri, options, (err, response, payload) => {
+          if (err) return reject(err);
+          return resolve({ response, payload });
+        });
+      });
     }
   };
 };
