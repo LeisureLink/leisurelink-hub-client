@@ -7,7 +7,7 @@ dependencies:
   pre:
     - rm -rf node_modules/
   post:
-    - rm -r ~/.gradle
+    - rm -rf ~/.gradle
 deployment:
   release:
     tag: /v.*/
